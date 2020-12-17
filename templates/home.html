@@ -1,5 +1,5 @@
 <html>
-  <title>Home</title>
+  <title>Update</title>
     <head>        
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -15,133 +15,115 @@
         </div>
       </nav>
 
-      <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">Dunder Mifflin Paper Company</h1>
-            <p class="lead">Here you can see all information regarding Employees, Branches, Clients and Suppliers</p>
-          </div>
+      <div style="background-color: #a7ffa4; ">
+        <div style="margin-left: 30px;">
+          <br>
+          <h1>Update Employee Table</h1>
+          <form method="post">
+            <h2>Insert</h2>
+            {{ Employee.hidden_tag() }}
+            {{ Employee.emp_id.label }} {{ Employee.emp_id }} <br>
+            {{ Employee.first_name.label }} {{ Employee.first_name }} <br>
+            {{ Employee.last_name.label }} {{ Employee.last_name }} <br>
+            {{ Employee.birth_day.label }} {{ Employee.birth_day }} <br>
+            {{ Employee.sex.label }} {{ Employee.sex }} <br>
+            {{ Employee.salary.label }} {{ Employee.salary }} <br>
+            {{ Employee.super_id.label }} {{ Employee.super_id }} <br>
+            {{ Employee.branch_id.label }} {{ Employee.branch_id }} <br>
+            {{ Employee.submit() }} <br><br>
+          </form>
+          <form method="post">
+            <h2>Delete</h2>
+            {{ DelEmployee.hidden_tag() }}
+            {{ DelEmployee.emp_id.label }} {{ DelEmployee.emp_id }} <br>
+            {{ DelEmployee.submit() }} <br><br>
+          </form>
+        <!/div>
+      </div>
+      
+      <div style="background-color: #ffc7c7; ">
+        <div style="margin-left: 30px;">
+          <br>
+          <h1>Update Branch Table</h1>
+          <form method="post">
+            <h2>Insert</h2>
+            {{ Branch.hidden_tag() }} <br>
+            {{ Branch.branch_id.label }} {{ Branch.branch_id }} <br>
+            {{ Branch.branch_name.label }} {{ Branch.branch_name }} <br>
+            {{ Branch.mgr_id.label }} {{ Branch.mgr_id }} <br>
+            {{ Branch.mgr_start_date.label }} {{ Branch.mgr_start_date }} <br>
+            {{ Branch.submit() }} <br><br>
+          </form>
+          <form method="post">
+            <h2>Delete</h2>
+            {{ DelBranch.hidden_tag() }}
+            {{ DelBranch.branch_id.label }} {{ DelBranch.branch_id }} <br>
+            {{ DelBranch.submit() }} <br><br>
+          </form>
+        <!/div> 
       </div>
 
-      <div>
-        <table class="table table-bordered table-striped">
-          <h1>Employees</h1>            
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Employee id</th>
-              <th scope="col">First name</th>
-              <th scope="col">Last name</th>
-              <th scope="col">Birth day</th>
-              <th scope="col">Sex</th>
-              <th scope="col">Salary</th>
-              <th scope="col">Supervisor id</th>
-              <th scope="col">Branch id</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for employee in employees %}
-            <tr>
-              <td>{{employee.0}}</td>
-              <td>{{employee.1}}</td>
-              <td>{{employee.2}}</td>
-              <td>{{employee.3}}</td>
-              <td>{{employee.4}}</td>
-              <td>{{employee.5}}</td>
-              <td>{{employee.6}}</td>
-              <td>{{employee.7}}</td>
-          {%endfor%}
-            </tr>
-          </tbody>
-        </table>
+      <div style="background-color: #adacff; ">
+        <div style="margin-left: 30px;">
+          <br>
+          <h1>Update Client Table</h1>
+          <form method="post">
+            <h2>Insert</h2>
+            {{ Client.hidden_tag() }} <br>
+            {{ Client.client_id.label }} {{ Client.client_id }} <br>
+            {{ Client.client_name.label }} {{ Client.client_name }} <br>
+            {{ Client.branch_id.label }} {{ Client.branch_id }} <br>
+            {{ Client.submit() }} <br><br>
+          </form>
+          <form method="post">
+            <h2>Delete</h2>
+            {{ DelClient.hidden_tag() }}
+            {{ DelClient.client_id.label }} {{ DelClient.client_id }} <br>
+            {{ DelClient.submit() }} <br><br>
+          </form>
+        <!/div>
       </div>
-      <br>
-      <div>
-        <table class="table table-bordered table-striped">
-          <h1>Branches</h1>
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Branch id</th>
-              <th scope="col">Branch name</th>
-              <th scope="col">Manager id</th>
-              <th scope="col">Manager Start Date</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for branch in branches %}
-            <tr>
-              <td>{{branch.0}}</td>
-              <td>{{branch.1}}</td>
-              <td>{{branch.2}}</td>
-              <td>{{branch.3}}</td>
-          {%endfor%}
-            </tr>
-          </tbody>
-        </table>
+
+      <div style="background-color: #fffd92; ">
+        <div style="margin-left: 30px;">
+          <br>
+          <h1>Update Employee-Client association Table</h1>
+          <form method="post">
+            <h2>Insert</h2>
+            {{ WorksWith.hidden_tag() }} <br>
+            {{ WorksWith.emp_id.label }} {{ WorksWith.emp_id }} <br>
+            {{ WorksWith.client_id.label }} {{ WorksWith.client_id }} <br>
+            {{ WorksWith.total_sales.label }} {{ WorksWith.total_sales }} <br>
+            {{ WorksWith.submit() }} <br><br>
+          </form>
+          <form method="post">
+            <h2>Delete</h2>
+            {{ DelWorksWith.hidden_tag() }}
+            {{ DelWorksWith.emp_id.label }} {{ DelBranch.emp_id }} <br>
+            {{ DelWorksWith.submit() }} <br><br>
+          </form>
+        <!/div>
       </div>
-      <br>
-      <div>
-        <table class="table table-bordered table-striped">
-          <h1>Clients</h1>
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Client id</th>
-              <th scope="col">Client name</th>
-              <th scope="col">Branch id</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for client in clients %}
-            <tr>
-              <td>{{client.0}}</td>
-              <td>{{client.1}}</td>
-              <td>{{client.2}}</td>
-          {%endfor%}
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <br>
-      <div>
-        <table class="table table-bordered table-striped">
-          <h1>Employee associated with Client</h1>
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Employee id</th>
-              <th scope="col">Client id</th>
-              <th scope="col">Total Sales</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for row in works_with %}
-            <tr>
-              <td>{{row.0}}</td>
-              <td>{{row.1}}</td>
-              <td>{{row.2}}</td>
-          {%endfor%}
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <br>
-      <div>
-        <table class="table table-bordered table-striped">
-          <h1>Branch Supplier</h1>
-          <thead class="thead-dark">
-            <tr>
-              <th scope="col">Branch id</th>
-              <th scope="col">Supplier name</th>
-              <th scope="col">Supply type</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for supplier in branch_suppliers %}
-            <tr>
-              <td>{{supplier.0}}</td>
-              <td>{{supplier.1}}</td>
-              <td>{{supplier.2}}</td>
-          {%endfor%}
-            </tr>
-          </tbody>
-        </table>
+
+      <div style="background-color: #a3fff7; ">
+        <div style="margin: 30px;">
+          <br>
+          <h1>Update Supplier Table</h1>
+          <form method="post">
+            <h2>Insert</h2>
+            {{ Supplier.hidden_tag() }} <br>
+            {{ Supplier.branch_id.label }} {{ Supplier.branch_id }} <br>
+            {{ Supplier.supplier_name.label }} {{ Supplier.supplier_name }} <br>
+            {{ Supplier.supply_type.label }} {{ Supplier.supply_type }} <br>
+            {{ Supplier.submit() }} <br><br>
+          </form>
+          <form method="post">
+            <h2>Delete</h2>
+            {{ DelSupplier.hidden_tag() }}
+            {{ DelSupplier.supplier_name.label }} {{ DelSupplier.supplier_name }} <br>
+            {{ DelSupplier.submit() }} <br><br>
+          </form>
+        <!/div>
       </div>
 
     </body>
