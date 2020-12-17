@@ -8,9 +8,9 @@ app = Flask(__name__)
 app.secret_key = 'its a secret'
 
 app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'zxcvbnm!@#$%^&*()'
-app.config['MYSQL_DB'] = 'test'
+app.config['MYSQL_USER'] = 'root'           #MySQL user name
+app.config['MYSQL_PASSWORD'] = 'password'   #password of the database
+app.config['MYSQL_DB'] = 'database'         #name of the database
 
 mysql = MySQL(app)
 
